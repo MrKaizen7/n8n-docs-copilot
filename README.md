@@ -70,3 +70,92 @@ n8n-docs is [fair-code](https://faircode.io/) licensed under the [**Sustainable 
 
 More information about the license is available in the [License documentation](https://docs.n8n.io/reference/license/).
 
+---
+
+## n8n Integration Copilot Prototype
+
+This section documents a proof-of-concept for an "n8n Integration Copilot," an interactive AI assistant that answers questions about n8n development. It uses the official n8n documentation as its knowledge base, ensuring that its answers are grounded in factual, up-to-date information.
+
+The system is built on a Retrieval-Augmented Generation (RAG) architecture. It leverages the `google-generativeai` library for embedding and text generation and `ChromaDB` for efficient vector storage and retrieval.
+
+### How it Works
+
+The process is broken down into three main stages:
+
+1.  **Processing:** A script scans the n8n documentation files (`.md`), cleans the text, and chunks it into smaller, semantically-related pieces based on headings.
+2.  **Embedding & Storage:** Each text chunk is converted into a numerical vector (an embedding) using the Google AI API. These embeddings, along with the original text and metadata, are stored locally in a ChromaDB vector database.
+3.  **Querying & Generation:** An interactive script takes a user's question, embeds it, and queries the ChromaDB to find the most relevant document chunks. The question and this retrieved context are then passed to a generative AI model (Gemini) to synthesize a final, context-aware answer.
+
+### Setup and Installation
+
+**Prerequisites:**
+*   Python 3.8+
+*   A Google AI API Key
+
+**Instructions:**
+
+1.  **Install Dependencies:** Ensure you have installed all dependencies, including the ones for this prototype.
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+### Usage
+
+Follow these steps in order to set up the knowledge base and run the copilot.
+
+#### Step 1: Process the Documentation
+
+First, you need to process the raw markdown files from the `docs/` directory into a structured JSON file. Run the following command:
+
+```bash
+python process_docs.py
+```
+
+This will create a `processed_docs.json` file in your project directory.
+
+#### Step 2: Create the Knowledge Base
+
+Next, you need to embed the processed documents and store them in the local vector database. Before running the script, you must set your Google AI API key as an environment variable.
+
+**In PowerShell (Windows):**
+```powershell
+$env:GOOGLE_API_KEY = "YOUR_API_KEY"
+```
+
+**In Command Prompt (Windows) or bash (Linux/macOS):**
+```bash
+set GOOGLE_API_KEY=YOUR_API_KEY  # Windows cmd
+export GOOGLE_API_KEY='YOUR_API_KEY' # Linux/macOS
+```
+
+Once the key is set for your terminal session, run the script:
+
+```bash
+python embed_and_store.py
+```
+
+This will create a local `n8n_chroma_db/` directory containing the vector database. This process can take some time.
+
+#### Step 3: Run the Copilot
+
+Finally, you can run the interactive copilot. Make sure your API key is still set in your terminal session (as shown in Step 2).
+
+```bash
+python copilot.py
+```
+
+The script will prompt you for questions. Type your question and press Enter. To end the session, type `quit` or `exit`.
+
+### Project Structure
+
+```
+.
+├── docs/                     # Source n8n documentation files
+├── n8n_chroma_db/            # Local ChromaDB vector store (created by embed_and_store.py)
+├── copilot.py                # The final, interactive Q&A application
+├── embed_and_store.py        # Script to create embeddings and store them
+├── process_docs.py           # Script to parse and chunk the markdown files
+├── processed_docs.json       # Staging file for processed text (created by process_docs.py)
+├── requirements.txt          # Python dependencies
+└── README.md                 # This file
+```
