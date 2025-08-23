@@ -19,3 +19,4 @@ Choose a Vector Database: Your suggestion of Chroma is great for local developme
 Generate Embeddings: You'll write a second script that reads your processed JSON file. For each chunk of text, it will use an embedding model (I recommend Google's text-embedding-004 via the Gemini API) to convert the text into a vector (an array of numbers that represents its semantic meaning).
 Store in the Database: The script will then store each object (the original text, the metadata, and its newly generated vector) in your chosen vector database.
 Once this is done, you have a fully indexed and searchable knowledge base of the entire n8n documentation.
+.
