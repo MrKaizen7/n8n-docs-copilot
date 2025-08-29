@@ -159,7 +159,11 @@ The script will prompt you for questions. Type your question and press Enter. To
 ├── requirements.txt          # Python dependencies
 └── README.md                 # This file
 ```# n8n-docs-copilot
+```
+
 ---
+## Done Here
+
 Basic functionality was achieved: Talking to ragged documentation.
 Further development, such as:
 ```
@@ -173,3 +177,4 @@ Further development, such as:
 ```
 will be continued on [n8nation](https://www.github.com/MrKaizen7/n8nation). You'll like it there, check it out.
 ---
+
