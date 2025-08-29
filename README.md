@@ -159,3 +159,17 @@ The script will prompt you for questions. Type your question and press Enter. To
 ├── requirements.txt          # Python dependencies
 └── README.md                 # This file
 ```# n8n-docs-copilot
+---
+Basic functionality was achieved: Talking to ragged documentation.
+Further development, such as:
+```
+- **🔁 Overall improvements**: Enhanced chunking, embedding and copilot capabilities.
+- **🌍 Multilingual Intelligence**: Native support for Spanish and English with automatic language detection and smart translation
+- **🧠 Conversational Memory**: Maintains context across interactions for natural, flowing conversations
+- **📚 Dynamic Knowledge Base**: Automatically updated from official n8n documentation, community resources, and custom content
+- **🔍 Semantic Search**: Advanced vector-based search with ChromaDB for finding relevant information
+- **🎯 Context-Aware Responses**: Intelligent system that understands your specific use cases and provides targeted advice
+- **🔄 Real-time Updates**: Webhook-based system for keeping knowledge base current with latest n8n developments
+```
+will be continued on [n8nation](https://www.github.com/MrKaizen7/n8nation). You'll like it there, check it out.
+---
