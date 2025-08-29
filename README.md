@@ -175,6 +175,6 @@ Further development, such as:
 - **🎯 Context-Aware Responses**: Intelligent system that understands your specific use cases and provides targeted advice
 - **🔄 Real-time Updates**: Webhook-based system for keeping knowledge base current with latest n8n developments
 ```
-will be continued on [n8nation](https://www.github.com/MrKaizen7/n8nation). You'll like it there, check it out.
+continues on [n8nation](https://www.github.com/MrKaizen7/n8nation). You'll like it there, check it out.
 ---
 
